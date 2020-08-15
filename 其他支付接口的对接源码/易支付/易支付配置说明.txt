@@ -1,0 +1,12 @@
+将本目录下的所有文件，复制到网站根目录下
+
+1.修改 epay.config.php 中的配置参数：  partner  key  apiurl  notify_url  return_url 
+
+	 其中，partner（商户ID），key（商户KEY），apiurl（支付API地址），在易支付后台查看
+		
+	 回调通知地址，notify_url 是文件 epay_notify.php 的url地址
+		       return_url 是文件 epay_return.php 的url地址
+
+
+2.将八图片后台的“api接口”页面的支付地址，改成文件 epay.php 的url地址
+

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!-- www.8tupian.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="Cache-Control" content="no-transform" /> 
+	<meta http-equiv="Cache-Control" content="no-siteapp" /> 
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
+    <title>注册</title>
+    <link href="./css/member.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./css/style_mobile_login.css">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/member.js"></script>
+<style type="text/css"> 
+@media(max-width:760px)
+{  
+	body {width:100%;}
+	#divPC{display:none}
+	#divMobile{display:block}	
+	#divMobile{width:100%}  
+	#divMobile img{max-width:90%} 
+}
+@media(min-width:760px)
+{  
+	#divPC{display:block}
+	#divMobile{display:none}	
+}
+</style>
+</head>
+<body>
+<div id="divPC">
+<div class="loginbg">
+    <div class="login"><p>注 册</p></div>
+    <div class="loginBOX clearfix">
+        <form id="form" method="post" action="register.php" onsubmit="return CheckReg();">
+		<input type="hidden" name="fromid" id="fromid" value=""/>
+            <div class="m_Bleft">
+                <ul>
+
+                    <li class="clearfix"><i><img src="./images/login_05.png" alt="用户名"></i>
+                        <input type="text" name="username" id="username" placeholder="用户名" style="width: 250px;">
+                        <span id="yhm_a"></span>
+                    </li>
+                    <li class="clearfix"><i><img src="./images/login_03.png" alt="用户密码"></i><input type="password" name="password" id="password" placeholder="密码"></li>
+
+                    <li class="clearfix"><i><img src="./images/login_03.png" alt="用户密码"></i><input type="password" name="repassword" id="repassword" placeholder="重复密码"></li>
+					
+					<li class="clearfix"><i><img src="./images/login_05.png" alt="联系QQ"></i><input type="text" name="contactqq" id="contactqq" placeholder="联系QQ"></li>
+					
+                </ul>
+                <span><input type="submit" value="立 即  注 册" id="submitxy" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果已有账号，请<a href="login.html">直接登录</a></span><br>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<div id="divMobile">
+<div class="main">
+	<div class="w3_login">
+		<div class="w3_login_module">
+			<div class="module form-module">
+				<div class="toggle">
+					<i class="fa fa-times fa-pencil"></i>
+				</div>
+				<div class="form">
+					<h2>注册</h2>
+					<form action="register.php" method="post"  onsubmit="return CheckReg_m();">
+					<input type="hidden" name="fromid" id="fromid_m" value=""/>
+						<span id="yhm_a_m"></span>
+						<input type="text" name="username" id="username_m" placeholder="用户名"  />
+						<input type="password" name="password" id="password_m" placeholder="密码"  />
+						<input type="password" name="repassword" id="repassword_m" placeholder="重复密码"  />
+						<input type="text" name="contactqq" id="contactqq_m" placeholder="联系QQ"  />
+						<div id="your-dom-id" class="nc-container"></div>
+						<input type="submit" value="注册" /><br><br>
+					</form>
+				</div>
+				<div class="cta"><a href="login.html">如果已有账号，请直接登录</a></div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+    //用户名重名检验
+    $("#username").on("change",function()
+	{
+        var val = $(this).val();
+        $.post("register1.php",{name:val},function(data)
+		{
+            if(data == 1){
+                document.getElementById("yhm_a").innerHTML = "用户名已注册";
+                document.getElementById("yhm_a").style.color = "#ff0000";
+                document.getElementById("yhm_a").style.fontSize= "16px";
+            }
+			else
+			{
+                document.getElementById("yhm_a").innerHTML = "用户名可使用";
+                document.getElementById("yhm_a").style.color = "#00ff00";
+				document.getElementById("yhm_a").style.fontSize= "16px";
+            }
+        })
+    })
+	
+	 $("#username_m").on("change",function()
+	{
+        var val = $(this).val();
+        $.post("register1.php",{name:val},function(data)
+		{
+            if(data == 1){
+                document.getElementById("yhm_a_m").innerHTML = "用户名已注册";
+                document.getElementById("yhm_a_m").style.color = "#ff0000";
+                document.getElementById("yhm_a_m").style.fontSize= "16px";
+            }
+			else
+			{
+                document.getElementById("yhm_a_m").innerHTML = "";
+                document.getElementById("yhm_a_m").style.color = "#00ff00";
+               document.getElementById("yhm_a_m").style.fontSize= "16px";
+            }
+        })
+    })
+	
+    //用户登陆跳转
+    $(".register").click(function()
+	{	
+        window.location.href="login.html";
+    })
+	
+//写cookies
+function setCookie(name, value) {
+	var Days = 30;
+	var exp = new Date();
+	exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+	document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+}
+
+//读取cookies 
+function getCookie(name) {
+	var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+
+	if (arr = document.cookie.match(reg)) return unescape(arr[2]);
+	else return null;
+}
+
+	function getQueryVariable(variable)
+	{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+	}	
+	
+	var fromid_u = getQueryVariable('u');
+	if (fromid_u == false)
+	{
+		fromid_u = getCookie("u");
+	}
+	else
+	{
+		setCookie("u", fromid_u);
+	}
+	
+	if (fromid_u == false || fromid_u == null)
+	{
+		fromid_u = 0;
+	}
+	
+	document.getElementById('fromid').value = fromid_u ;
+	document.getElementById('fromid_m').value = fromid_u ;
+	
+//	alert(fromid_u);
+
+</script>
+</body>
+<!-- www.8tupian.com -->
+</html>

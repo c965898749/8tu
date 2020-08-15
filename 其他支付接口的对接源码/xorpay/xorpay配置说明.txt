@@ -1,0 +1,11 @@
+将本目录下的所有文件，复制到网站根目录下
+
+1.修改 xorpay_config.php 中的配置参数：  aid  secret 和 回调通知地址 
+
+	 其中，aid和app secret在xorpay后台的“应用配置”中查看
+		
+	 回调通知地址，是文件 xorpay_notify.php 的URL地址
+
+
+2.将八图片后台的“api接口”页面的支付地址，改成文件 xorpay_pay.php 的url地址
+

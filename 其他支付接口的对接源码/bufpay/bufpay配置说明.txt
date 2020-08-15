@@ -1,0 +1,11 @@
+将本目录下的所有文件，复制到网站根目录下
+
+1.修改 bufpay_config.php 中的参数：  
+		
+		bufpay的aid 和 app secret 在bufpay后台的“应用配置”中查看
+		
+		异步通知地址 是文件 bufpay_notify.php 的URL地址
+		同步通知地址 是文件 bufpay_return.php 的URL地址
+
+2.将八图片后台的“api接口”页面的支付地址，改成文件 bufpay_pay.php 的url地址
+

@@ -1,0 +1,83 @@
+<script type="text/javascript">
+	var mq = window.matchMedia("(max-width: 760px)");
+	if (mq.matches)
+	{
+		document.write("<link rel='stylesheet' type='text/css' href='./css/m/main.css'>");
+		document.write("<link rel='stylesheet' type='text/css' href='./css/m/responsive.css'>");
+	}
+</script>
+<header class="simple-normal">
+     <div class="top-bar">
+          <div class="logo">
+               <a href="./" title="">平台中心</a>
+          </div>
+          <div class="menu-options"><span class="menu-action"><i></i></span></div>
+          <div class="search-dashboard">
+               <div class="responsive-search">
+			   <img src="./images/qbt_001.jpg" class="img-circle" height="40" alt="" />
+               </div>
+          </div>
+          <div class="top-bar-quick-sec hidden-xs">
+               <div class="name-area">
+               </div>
+          </div>
+     </div>
+     <div class="side-menu-sec" id="header-scroll">
+          <div class="quick-report-side">
+		  <!--<span>用户名</span>-->
+               <ul>
+                    <div>
+					<strong>账号：<?php echo $name; ?></strong>
+				<strong><a href="logout.php"><span style="width: 150px;" class="btn-qq label label-danger" title="退出登录"><i class="fa fa-qq">退出登录</i></span></a>
+                </strong>
+					</div>
+               </ul>
+          </div>
+          <div class="side-menus"  style="margin-bottom: 20px;">
+               <nav>
+                    <ul class="parent-menu">
+                         <li>
+                              <a href="index.php" title=""><i class="fa fa-home"></i><span>个人中心</span></a>
+                         </li>
+                         
+                         <li>
+                              <a href="information.php" title=""><i class="fa fa-user"></i><span>修改资料</span></a>
+                         </li>
+                         <li>
+                              <a href="manage.php" title=""><i class="fa fa-clock-o"></i><span>图片管理</span></a>
+                         </li>
+                         <li>
+                              <a href="add.php" title=""><i class="fa fa-list"></i><span>上传图片</span></a>
+                         </li>
+						 
+                    </ul>
+               </nav>
+               
+          </div>
+           <div class="side-menus">
+				<span>————————</span>
+               <nav>
+                    <ul class="parent-menu">
+					<li>
+					<a href="javascript:layer.alert('客服QQ：<?php echo $web_config['qq']; ?><br>联系邮箱：<?php echo $web_config['email']; ?>');" title=""><i class="fa fa-qq"></i><span>联系客服</span></a>
+                    </li>
+						 <li>
+                         </li>
+                    </ul>
+               </nav>
+          </div>
+		             <div class="side-menus">
+               <nav>
+                    <ul class="parent-menu">
+                      <li>
+                         </li><li>
+                         </li><li>
+                         </li><li>
+                         </li>
+                    </ul>
+               </nav>
+          </div>
+     </div>
+</header>
+<script src="./js/m/app.js"></script>
+<script src="./js/m/common.js"></script>

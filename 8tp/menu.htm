@@ -1,0 +1,61 @@
+<script src="./js/bootstrap/bootstrap-tooltip.js"></script>
+<script src="./js/bootstrap/bootstrap-popover.js"></script>
+
+		<ul class="menu">
+			<li><a href="index.php" class="" id="index.php">个人中心</a></li>
+			<li><a href="information.php"  class="" id="information.php">修改资料</a></li>
+			
+			<li><a href="manage.php"  class="" id="manage.php">图片管理</a></li>
+			
+			<div onmouseover="showhid('downmenu1')" onmouseout="showhid2('downmenu1')">
+			  <li><a href="#" onclick="showhid('downmenu1');" id="xuyaoxianshi" rel="popover" data-content="模式1：用户上传1张图片，平台自动对图片进行模糊处理，比较简单<br><br>模式2：需要用户自行上传2张图片，分别对应打赏前和打赏后的图像<br><br>模式3：与前两种模式不同，图片打赏后将直接跳转到指定的网页" data-original-title="">上传图片</a></li>
+                <div id="downmenu1" style=" display:none;">
+             <li><a href="add_1.php"  class="" id="add_1.php">&nbsp;&nbsp;模式1:平台处理</a></li>
+             <li><a href="add_2.php"  class="" id="add_2.php">&nbsp;&nbsp;模式2:自行设计</a></li>
+			 <li><a href="add_3.php"  class="" id="add_3.php">&nbsp;&nbsp;模式3:跳转网页</a></li>
+         		</div>
+			</div>
+		</ul>
+		
+<script type="text/javascript">
+    $(function(){
+        $('#close_im').bind('click',function(){
+            $('#main-im').css("height","0");
+            $('#im_main').hide();
+            $('#open_im').show();
+        });
+        $('#open_im').bind('click',function(e){
+            $('#main-im').css("height","272");
+            $('#im_main').show();
+            $(this).hide();
+        });
+        $('.go-top').bind('click',function(){
+            $(window).scrollTop(0);
+        });
+        $(".weixing-container").bind('mouseenter',function(){
+            $('.weixing-show').show();
+        })
+        $(".weixing-container").bind('mouseleave',function(){
+            $('.weixing-show').hide();
+        });
+		
+		$("#xuyaoxianshi").popover({placement:'right'/*,trigger: 'focus'*/});
+    });
+function showhid(id){
+ document.getElementById(id).style.display ='block';
+}
+function showhid2(id){
+ document.getElementById(id).style.display ='none';
+}
+
+var pathname = window.location.pathname;
+var pathStart = pathname.lastIndexOf("\\");
+if (pathStart == -1)
+{
+	pathStart = pathname.lastIndexOf("/");
+}
+if (pathStart != -1)
+{
+	document.getElementById( pathname.substring(pathStart+1) ).setAttribute("class", "show");
+}
+</script>

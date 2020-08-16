@@ -20,16 +20,26 @@ ini_set('date.timezone','Asia/Shanghai');
 		$errortext = "Could not connect: " . mysqli_connect_error(); 
 		header("location:warning.php?status=1&title={$errortext}&time=10");
 		die(0);
-	} 
-		
+	}
+
+    $result8 = mysqli_query($con, "select * from user where username ='$name' and userpassword='$password';");
+    if ( mysqli_num_rows($result8) == 0)
+    {
+        mysqli_close($con);
+        header("location:warning.php?status=1&title=账号密码错误，请重新输入！&time=3");
+        die(0);
+    }
+
 	$result = mysqli_query($con, "select * from sellerinformation where Name ='$name';" );
 	if ( mysqli_num_rows($result) != 0)
 	{
 		mysqli_close($con);
-		header("location:warning.php?status=1&title=用户名已使用，请重新输入！&time=3");
+		header("location:warning.php?status=1&title=用户名已绑定，请直接登录！&time=3");
 		die(0);
 	}
-	
+
+
+
 	$password = md5($_REQUEST["password"]);
 	$registerip = $_SERVER['REMOTE_ADDR'];
 	$registertime = date('Y-m-d H:i:s');
@@ -68,7 +78,9 @@ ini_set('date.timezone','Asia/Shanghai');
 		header("location:warning.php?status=1&title=系统原因，注册失败4！&time=3");
 		die(0);
 	}
-	
+
+
+
 	//下线推广模块
 	if ( is_numeric($fromid) && $web_config['iftg'] == 1 )
 	{
@@ -82,7 +94,9 @@ ini_set('date.timezone','Asia/Shanghai');
 			mysqli_query($con, "update jiesuanbiao set tgnum='{$tgnum}'  where SellerID = '{$fromid}';");
 		}
 	}
-	
+
+
+
 	mysqli_close($con);
 	
 	header("location:warning.php?status=0&title=注册成功！&time=1&url=login.html");

@@ -8,7 +8,8 @@ ini_set('date.timezone','Asia/Shanghai');
 	$login = g_iflogin();
 	$sellerid = $login[0];
 	$name = $login[1];
-	
+	$user = $login[2];
+
 if ( $_POST["password"] &&  $_POST["password1"] && $_POST["password2"])
 {
 	$con = mysqli_connect($data_config['DB_HOST'], $data_config['DB_USER'], $data_config['DB_PWD'], $data_config['DB_NAME']);
@@ -24,7 +25,7 @@ if ( $_POST["password"] &&  $_POST["password1"] && $_POST["password2"])
 	$password1 = $_REQUEST["password1"];
 	$password2 = $_REQUEST["password2"];
 
-	$result=mysqli_query($con, "select Password from sellerinformation where SellerID ='{$sellerid}' ;" );
+	$result=mysqli_query($con, "select * from sellerinformation where SellerID ='{$sellerid}' ;" );
 	$row = mysqli_fetch_array($result);
 	if ($row['Password'] != md5(trim($password)) )
 	{
@@ -33,7 +34,8 @@ if ( $_POST["password"] &&  $_POST["password1"] && $_POST["password2"])
 		header("location:warning.php?status=1&title=操作失败！原密码不正确!&time=3");
 		die(0);
 	}
-	
+
+    $password3=$password1;
 	$password1 = md5(trim($password1));
 	$password2 = md5(trim($password2));
 	if ( $password1 != $password2 )
@@ -45,7 +47,8 @@ if ( $_POST["password"] &&  $_POST["password1"] && $_POST["password2"])
 	}
 	
 	mysqli_query($con, "update sellerinformation set password='{$password1}' where SellerID=$sellerid ;");
-	
+	mysqli_query($con, "update user set password='{$password3}' where username ='{$row['Name']} ';");
+
 	mysqli_free_result($result);
 	mysqli_close($con);
 	header("location:warning.php?status=0&title=操作成功&time=1&url=information.php");
@@ -66,6 +69,7 @@ if ( $_POST["password"] &&  $_POST["password1"] && $_POST["password2"])
 	<link href="./css/bootstrap/bootstrap.css" type="text/css" rel="stylesheet">
 	<script type="text/javascript" src="./js/jquery.min.js"></script>
 	<script src="./js/bootcss/layer.min.js"></script>
+    <link rel="stylesheet" href="./css/font/cheatin.css">
 	<style type="text/css">
 		#left{width: 10%; float: left; height: auto; min-height: 800px;border-right: 3px solid #000; min-width: 170px;}
 		#right{width: 79%; height: 100%; float: right}

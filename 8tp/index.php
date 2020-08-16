@@ -8,6 +8,7 @@ ini_set('date.timezone','Asia/Shanghai');
 	$login = g_iflogin();
 	$sellerid = $login[0];
 	$name = $login[1];
+	$user = $login[2];
 
 	$con = mysqli_connect($data_config['DB_HOST'], $data_config['DB_USER'], $data_config['DB_PWD'], $data_config['DB_NAME']);
 	if (mysqli_connect_errno($con))
@@ -37,8 +38,10 @@ ini_set('date.timezone','Asia/Shanghai');
 		die(0);
 	}
 
+
 	mysqli_free_result($result);
 	mysqli_free_result($result1);
+	mysqli_free_result($result2);
 	mysqli_close($con);
 	ob_clean();
 ?>
@@ -55,7 +58,7 @@ ini_set('date.timezone','Asia/Shanghai');
     <script type="text/javascript" src="./js/jquery.min.js"></script>
 	<script src="./js/bootcss/layer.min.js"></script>
 	<script src="./js/bootcss/jquery.cookie.min.js"></script>
-    <link rel="stylesheet" href="./8tupian_css/font/cheatin.css">
+    <link rel="stylesheet" href="./css/font/cheatin.css">
     <style type="text/css">
 		#left{width: 10%; float: left; height: auto; min-height: 800px;border-right: 3px solid #000; min-width: 170px;}
 		#right{width: 79%; height: 100%; float: right}
@@ -67,7 +70,9 @@ ini_set('date.timezone','Asia/Shanghai');
 <style type="text/css">
 @media(max-width:760px)
 {
-	body {width:100%;}
+	body {width:100%;
+    padding: 10px;
+    }
 	.divPC{display:none}
 	.divMobile{display:block}
 	.divMobile{width:100%}

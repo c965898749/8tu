@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/data/此文件夹下的图片命名规则.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/其他支付接口的对接源码/bufpay/bufpay配置说明.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/其他支付接口的对接源码/xorpay/xorpay配置说明.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/其他支付接口的对接源码/易支付/易支付配置说明.txt" charset="GBK" />

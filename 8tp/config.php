@@ -45,6 +45,7 @@ function g_iflogin()
 
 	$sellerid = g_xyReplacestring( $_SESSION['user_id'] );
 	$name = $sellerid;
+	$user['headImg']="./images/qbt_001.jpg";
 	if ($sellerid == "")
 	{
 		header("location:warning.php?status=1&title=需要登录&time=3&url=login.html");
@@ -84,12 +85,23 @@ function g_iflogin()
 		$xy_client_ip = $_SERVER['REMOTE_ADDR'];
         $xy_lastlandtime = date('Y-m-d H:i:s');
 		mysqli_query($con, "update sellerinformation set LastLandIP = '$xy_client_ip' , LastLandTime = '$xy_lastlandtime' where SellerID=$sellerid ;" );
-
+		/**
+		 * 查询头像
+		 */
+		// 匹配http(s)的表达式
+		$preg = "/^http(s)?:\\/\\/.+/";
+		$result2 = mysqli_query($con, "select * from user where username ='{$row['Name']}' ;" );
+		$kk = mysqli_fetch_array($result2);
+		$preg = "/^http(s)?:\\/\\/.+/";
+		if(preg_match($preg,$kk['headImg']))
+		{
+			$user=$kk;
+		}
 		mysqli_free_result($result);
 		mysqli_close($con);
 	}
 
-	return array($sellerid, $name);
+	return array($sellerid, $name,$user);
 }
 
 function g_xyReplacestring($q)

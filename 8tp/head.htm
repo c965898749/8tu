@@ -3,14 +3,16 @@
 		<span style="font-family: Cheatin;font-size: 45px"><span style="color: red">Y</span>ImEm</span>
     </div>
     <div style="margin-left:250px;display: inline-block;padding-top: 2%">
-                <p>客服微信&nbsp;:&nbsp;<span style="color: red"><?php echo $web_config['qq']; ?></span>
-				<p>联系邮箱:&nbsp;<span style="color: red"><?php echo $web_config['email']; ?></span>
+                <p>官方微信&nbsp;:&nbsp;<span style="color: red"><?php echo $web_config['qq']; ?></span>
+				<p>官方邮箱:&nbsp;<span style="color: red"><?php echo $web_config['email']; ?></span>
     </div>
 	<div style="float:left;margin-left:20px;display:none;">
 		<span style="font-family: Cheatin;font-size: 45px"><span style="color: red">Y</span>ImEm</span>
 	</div>
 	<div class="top_user">
-		<div style="float:left;"><img src="./images/qbt_001.jpg"></div>
+		<div style="float:left;">
+			<img style="width: 80px;height: 80px" src="<?php echo $user['headImg']; ?>">
+		</div>
 		<div style="float:right;color:#000;">
 			<div>
 				<lable style="font-size:8px"><?php echo $name; ?></lable>

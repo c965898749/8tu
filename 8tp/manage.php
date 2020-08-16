@@ -8,6 +8,7 @@ ini_set('date.timezone','Asia/Shanghai');
 	$login = g_iflogin();
 	$sellerid = $login[0];
 	$name = $login[1];
+	$user = $login[2];
 
 	$con = mysqli_connect($data_config['DB_HOST'], $data_config['DB_USER'], $data_config['DB_PWD'], $data_config['DB_NAME']);
 	if (mysqli_connect_errno($con)) 
@@ -55,6 +56,7 @@ ini_set('date.timezone','Asia/Shanghai');
 	<link href="./css/bootstrap/bootstrap.css" type="text/css" rel="stylesheet">
 	<script type="text/javascript" src="./js/jquery.min.js"></script>
 	<script src="./js/bootcss/layer.min.js"></script>
+    <link rel="stylesheet" href="./css/font/cheatin.css">
 	<style type="text/css">
 		#left{width: 10%; float: left; height: auto; min-height: 800px;border-right: 3px solid #000; min-width: 170px;}
 		#right{width: 79%; height: 100%; float: right}

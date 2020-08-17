@@ -70,7 +70,6 @@ $header = substr($data, 0, $headerSize);
 
 curl_close($curl);
 
-$data = str_replace("支付成功后，等待几秒钟，然后&nbsp;→&nbsp;<input type=button value=点击这里 onclick=\"xyRefresh()\" style=\"width:80px;height:45px;\">", "", $data);
 
 $contenttype = analysis("Content-Type: ", $header);
 $setcookie = analysis("Set-Cookie: ", $header);
@@ -80,10 +79,4 @@ header("Set-Cookie: " . str_replace("8tupian.com", $domain, $setcookie) );
 
 echo substr($data, $headerSize  );;
 ?>
-<script language="JavaScript">
-    function myrefresh()
-    {
-        window.location.reload();
-    }
-    setTimeout('myrefresh()',500); //指定1秒刷新一次
-</script
+

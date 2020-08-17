@@ -7,22 +7,22 @@ ini_set('date.timezone','Asia/Shanghai');
 
 	$name = trim($_REQUEST["username"]);
     $name = g_xyReplacestring( $name );
-	
+
 	if ( $name == "")
 	{
 		header("location:warning.php?status=1&title=没有输入用户名&time=3");
 		die(0);
 	}
-	
+
 	$con = mysqli_connect($data_config['DB_HOST'], $data_config['DB_USER'], $data_config['DB_PWD'], $data_config['DB_NAME']);
-	if (mysqli_connect_errno($con)) 
-	{ 
-		$errortext = "Could not connect: " . mysqli_connect_error(); 
+	if (mysqli_connect_errno($con))
+	{
+		$errortext = "Could not connect: " . mysqli_connect_error();
 		header("location:warning.php?status=1&title={$errortext}&time=10");
 		die(0);
 	}
 
-    $result8 = mysqli_query($con, "select * from user where username ='$name' and userpassword='$password';");
+    $result8 = mysqli_query($con, "select * from user where username ='$name' and userpassword='{$_REQUEST["password"]}';");
     if ( mysqli_num_rows($result8) == 0)
     {
         mysqli_close($con);
@@ -47,14 +47,14 @@ ini_set('date.timezone','Asia/Shanghai');
 	$contactqq = g_xyReplacestring( $_REQUEST["contactqq"] );
 
 	$result = mysqli_query($con, "insert into sellerinformation(Name, ContactQQ, Password, RegisterIP, RegisterTime, fromid) values ('$name', '$contactqq', '$password', '$registerip', '$registertime', '$fromid' );" );
-	
+
 	if ($result == FALSE)
 	{
 		mysqli_close($con);
 		header("location:warning.php?status=1&title=系统原因，注册失败1！&time=3");
 		die(0);
 	}
-	
+
 	$result = mysqli_query($con, "select SellerID from sellerinformation where Name = '$name' and Password = '$password'; ");
 	if ($result == FALSE)
 	{
@@ -62,7 +62,7 @@ ini_set('date.timezone','Asia/Shanghai');
 		header("location:warning.php?status=1&title=系统原因，注册失败2！&time=3");
 		die(0);
 	}
-	
+
 	$row = mysqli_fetch_array($result);
 	if ($row == FALSE)
 	{
@@ -70,7 +70,7 @@ ini_set('date.timezone','Asia/Shanghai');
 		header("location:warning.php?status=1&title=系统原因，注册失败3！&time=3");
 		die(0);
 	}
-	
+
 	$result1 = mysqli_query($con, "insert into jiesuanbiao(SellerID, Balance) values ({$row['SellerID']} , 0);" );
 	if ($result1 == FALSE)
 	{
@@ -87,10 +87,10 @@ ini_set('date.timezone','Asia/Shanghai');
 		$result = mysqli_query($con, "select tgnum from jiesuanbiao where SellerID = $fromid ;" );
 		$row = mysqli_fetch_array($result);
 		if($row != NULL)
-		{									
+		{
 			$tgnum = $row['tgnum'];
 			$tgnum = $tgnum + 1;
-					
+
 			mysqli_query($con, "update jiesuanbiao set tgnum='{$tgnum}'  where SellerID = '{$fromid}';");
 		}
 	}
@@ -98,7 +98,7 @@ ini_set('date.timezone','Asia/Shanghai');
 
 
 	mysqli_close($con);
-	
+
 	header("location:warning.php?status=0&title=注册成功！&time=1&url=login.html");
 
 ?>

@@ -1,7 +1,8 @@
 <?php
+$picurl = trim( $_REQUEST["picurl"] );
 $id="<html>
 <head>
-<meta http-equiv=\"refresh\"content=\"0;url=http://dt1.8tupian.com/27a111b1.pg0\">
+<meta http-equiv=\"refresh\"content=\"0;url={$picurl}\">
 </head>
 </html>";
 header("Content-type:application/octet-stream");

@@ -11,19 +11,19 @@ ini_set('date.timezone','Asia/Shanghai');
 	$user = $login[2];
 
 	$con = mysqli_connect($data_config['DB_HOST'], $data_config['DB_USER'], $data_config['DB_PWD'], $data_config['DB_NAME']);
-	if (mysqli_connect_errno($con)) 
-	{ 
-		$errortext = "Could not connect: " . mysqli_connect_error(); 
+	if (mysqli_connect_errno($con))
+	{
+		$errortext = "Could not connect: " . mysqli_connect_error();
 		header("location:warning.php?status=1&title=$errortext&time=10");
 		die(0);
 	}
-	
+
 	$pagesize = 10;
-	
+
 	$result1 = mysqli_query($con, "select * from pictureinformation where Sellerid ='{$sellerid}' and ifDelete = 0 order by ID desc;" );
 	$zongshu = mysqli_num_rows($result1);
 	mysqli_free_result($result1);
-	
+
 	if (  $zongshu % $pagesize == 0)
 	{
 		$pagecount = $zongshu / $pagesize;
@@ -32,15 +32,15 @@ ini_set('date.timezone','Asia/Shanghai');
 	{
 		$pagecount = ( $zongshu - ( $zongshu % $pagesize) ) / $pagesize + 1;
 	}
-	
+
 	$page = $_GET["page"];
 	if ( $page == "" )
 	{
 		$page = 1;
 	}
-	
+
 	$startnum = ($page - 1) * $pagesize;
-	
+
 	$result1 = mysqli_query($con, "select * from pictureinformation where Sellerid ='{$sellerid}' and ifDelete = 0 order by ID desc limit $startnum, $pagesize ;" );
 	ob_clean();
 ?>
@@ -49,8 +49,8 @@ ini_set('date.timezone','Asia/Shanghai');
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="Cache-Control" content="no-transform" /> 
-	<meta http-equiv="Cache-Control" content="no-siteapp" /> 
+	<meta http-equiv="Cache-Control" content="no-transform" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
 	<title>图片管理</title>
 	<link href="./css/bootstrap/bootstrap.css" type="text/css" rel="stylesheet">
@@ -65,14 +65,14 @@ ini_set('date.timezone','Asia/Shanghai');
 		.top_user {float: right;width: 200px;margin-right: 40px;margin-top: 10px;}
 		.show{color:red;}
 	</style>
-<style type="text/css"> 
+<style type="text/css">
 @media(max-width:760px)
-{  
+{
 	body {width:100%;}
 	.divPC{display:none}
-	.divMobile{display:block}	
-	.divMobile{width:100%}  
-	.divMobile img{max-width:90%} 
+	.divMobile{display:block}
+	.divMobile{width:100%}
+	.divMobile img{max-width:90%}
 }
 @media(min-width:760px)
 {
@@ -136,7 +136,8 @@ ini_set('date.timezone','Asia/Shanghai');
 		   <?php echo $row1['PicUrl']; ?>
 		   </td>
 		   <td>
-           <button type="button" onclick="javascript:xychakan('<?php echo $row1['PicUrl'];  ?>');">查看</button>	
+           <button type="button" onclick="javascript:xychakan('<?php echo $row1['PicUrl'];  ?>');">预览</button>
+           <button type="button" onclick="javascript:dow('<?php echo $row1['PicUrl'];  ?>');">下载模板</button>
 		   <button type="button" onclick="javascript:xydelete(<?php echo $row1['PictureID']; ?> , <?php echo $row1['Price']; ?>, '<?php echo $row1['PicUrl'];  ?>');">删除</button>
 		   </td>
 		   <td><?php echo $row1['add_time'] ; ?></td>
@@ -159,20 +160,20 @@ ini_set('date.timezone','Asia/Shanghai');
 	{
 		$page = 1;
 	}
-	
+
 	if ($pagecount > 1)
 	{
 		if ($page - 5 > 1 )
 		{
 			echo "<li><a class=\"first\" href=\"?page=1\">1...</a></li>";
 		}
-		
+
 		if ($page > 1)
 		{
 			$prepage = $page - 1;
 			echo  "<li><a class=\"prev\" href=\"?page={$prepage}\"><<</a></li>";
 		}
-		
+
 		$i = $page - 5;
 		while(1)
 		{
@@ -181,12 +182,12 @@ ini_set('date.timezone','Asia/Shanghai');
 				$i ++;
 				continue;
 			}
-			
+
 			if ($i > $page + 5 || $i > $pagecount )
 			{
 				break;
 			}
-			
+
 			if ($i == $page)
 			{
 				echo "<li class=\"active\"><span class=\"current\">{$i}</span></li>";
@@ -195,16 +196,16 @@ ini_set('date.timezone','Asia/Shanghai');
 			{
 				echo "<li><a class=\"num\" href=\"?page={$i}\">{$i}</a></li>";
 			}
-			
+
 			$i ++;
 		}
-		 
+
 		if ($page < $pagecount)
 		{
 			$nextpage = $page + 1;
 			echo "<li><a class=\"next\" href=\"?page={$nextpage}\">>></a></li>";
 		}
-		
+
 		if ($page + 5 < $pagecount )
 		{
 			echo "<li><a class=\"end\" href=\"?page={$pagecount}\">{$pagecount}</a></li>";
@@ -212,9 +213,9 @@ ini_set('date.timezone','Asia/Shanghai');
 	}
 ?>
 </ul>
-</nav>   
+</nav>
 	</div>
-	
+
 </div>
 </div>
 <div class="divMobile">
@@ -222,7 +223,7 @@ ini_set('date.timezone','Asia/Shanghai');
 <div class="main-content">
     <div class="panel-content" style="margin-top: 50px;">
         <div class="main-content-area" style="margin-top: -10px;">
-            
+
 <div class="row">
   <div class="col-sm-12">
    <div class="widget">
@@ -249,14 +250,14 @@ ini_set('date.timezone','Asia/Shanghai');
 	{
 ?>
                        <tr>
-					   
+
 						  <input type="hidden" id="<?php echo $row1['ID']; ?>_pictureid_m" value="<?php echo $row1['PictureID']; ?>" />
 						  <input type="hidden" id="<?php echo $row1['ID']; ?>_picurl_m" value="<?php echo $row1['PicUrl']; ?>" />
 						  <input type="hidden" id="<?php echo $row1['ID']; ?>_add_time_m" value="<?php echo $row1['add_time']; ?>" />
 						  <input type="hidden" id="<?php echo $row1['ID']; ?>_paysuccessnum_m" value="<?php echo $row1['PayNum']; ?>" />
 						  <input type="hidden" id="<?php echo $row1['ID']; ?>_lastpaytime_m" value="<?php echo $row1['LastPayTime']; ?>" />
 						  <input type="hidden" id="<?php echo $row1['ID']; ?>_date_m" value="<?php echo date('Y-m-d H:i:s'); ?>" />
-						  
+
                           <td><span class="label label-default" ><?php echo $row1['PictureID']; ?></span></td>
                           <td><?php echo $row1['Price']/100; ?></td>
                           <td>
@@ -265,39 +266,39 @@ ini_set('date.timezone','Asia/Shanghai');
                           <td onclick="beizhu_m(<?php echo $row1['ID']; ?>);" >
 						  <input type="text" name="beizhu_m" id="<?php echo $row1['ID']; ?>_beizhu_m"  value="<?php echo $row1['beizhu']; ?>"  size="10"  style="outline:none " readonly >
                           </td>
-						  
+
 						</tr>
 <?php
 	}
-	
+
 	mysqli_free_result($result1);
 	mysqli_close($con);
-?>              
-                                      
+?>
+
                      </tbody>
                 </table>
             </div>
-            
+
 <ul class="pagination">
 <?php
 	if ($page <= 0)
 	{
 		$page = 1;
 	}
-	
+
 	if ($pagecount > 1)
 	{
 		if ($page - 1 > 1 )
 		{
 			echo "<li><a class=\"first\" href=\"?page=1\">1...</a></li>";
 		}
-		
+
 		if ($page > 1)
 		{
 			$prepage = $page - 1;
 			echo  "<li><a class=\"prev\" href=\"?page={$prepage}\"><<</a></li>";
 		}
-		
+
 		$i = $page - 1;
 		while(1)
 		{
@@ -306,12 +307,12 @@ ini_set('date.timezone','Asia/Shanghai');
 				$i ++;
 				continue;
 			}
-			
+
 			if ($i > $page + 1 || $i > $pagecount )
 			{
 				break;
 			}
-			
+
 			if ($i == $page)
 			{
 				echo "<li class=\"active\"><span class=\"current\">{$i}</span></li>";
@@ -320,16 +321,16 @@ ini_set('date.timezone','Asia/Shanghai');
 			{
 				echo "<li><a class=\"num\" href=\"?page={$i}\">{$i}</a></li>";
 			}
-			
+
 			$i ++;
 		}
-		 
+
 		if ($page < $pagecount)
 		{
 			$nextpage = $page + 1;
 			echo "<li><a class=\"next\" href=\"?page={$nextpage}\">>></a></li>";
 		}
-		
+
 		if ($page + 1 < $pagecount )
 		{
 			echo "<li><a class=\"end\" href=\"?page={$pagecount}\">{$pagecount}</a></li>";
@@ -337,8 +338,8 @@ ini_set('date.timezone','Asia/Shanghai');
 	}
 ?>
 </ul>
-			
-			
+
+
 			</div>
     </div>
 </div>
@@ -382,12 +383,12 @@ function chakan_m(id, price)
 {
 	document.getElementById("id_m").innerHTML = document.getElementById(id + "_pictureid_m").value;
 	document.getElementById("price_m").value = price;
-	
+
 	document.getElementById("picurl_m").innerHTML = document.getElementById(id + "_picurl_m").value;
-	
+
 	document.getElementById("add_time_m").innerHTML = document.getElementById(id + "_add_time_m").value;
 	document.getElementById("paysuccessnum_m").innerHTML = document.getElementById(id + "_paysuccessnum_m").value;
-	document.getElementById("lastpaytime_m").innerHTML = document.getElementById(id + "_lastpaytime_m").value;	
+	document.getElementById("lastpaytime_m").innerHTML = document.getElementById(id + "_lastpaytime_m").value;
 //	document.getElementById("fenzu_m").innerHTML = document.getElementById(id + "_group_id_m").value;
 	document.getElementById("date_m").innerHTML = document.getElementById(id + "_date_m").value;
 
@@ -408,12 +409,12 @@ function chakan_m(id, price)
 function m_copy()
 {
 	const copyStr = document.getElementById("picurl_m").innerHTML;
-	
+
 	const input = document.createElement('input');
 	input.setAttribute('readonly', 'readonly');
 	input.setAttribute('value', document.getElementById("picurl_m").innerHTML);
 	document.body.appendChild(input);
-	
+
 	var u = navigator.userAgent;
 	if (!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) )
 	{
@@ -424,8 +425,8 @@ function m_copy()
 	{
 		input.select();
 	}
-	
-	if (document.execCommand('copy')) 
+
+	if (document.execCommand('copy'))
 	{
 		layer.msg("复制成功！(如果失败，请手动复制)");
 	}
@@ -433,7 +434,7 @@ function m_copy()
 	{
 		layer.msg("复制失败，请手动复制");
 	}
-	
+
 	document.body.removeChild(input);
 }
 
@@ -475,17 +476,17 @@ function m_delete()
 			,yes: function (index, layero)
 			{
 				var beizhu = document.getElementById("beizhu_txt_m").value;
-		
+
 				if (beizhu == value || beizhu.length > 200 || id == "0")
 				{
 					//不用变
 				}
 				else
 				{
-					$.post("manage1.php?type=2", {id: id, beizhu: beizhu}, function (data) 
+					$.post("manage1.php?type=2", {id: id, beizhu: beizhu}, function (data)
 					{
 						var obj = JSON.parse(data);
-						if (obj.status == 1) 
+						if (obj.status == 1)
 						{
 							document.getElementById(id + "_beizhu_m").value = beizhu;
 						}
@@ -495,26 +496,34 @@ function m_delete()
 						}
 					})
 				}
-				
+
 				layer.close(index);
 			}
 		});
 
 	}
-	
+    function dow(u){
+
+        location.href='aaaa.php?picurl='+u;
+        // $.get("aaaa.php",{picurl:u}, function(data)
+        // {
+        //
+        // })
+    }
+
 	function xychakan(url)
-	{	
-		layer.alert("提示：不能将图片或者网页保存到本地再发布，那样扫码支付无效。<br><br>正确的做法是，复制图片的网络地址，然后通过这个网络地址在网上发布。",
-		function (index) { 
+	{
+		layer.alert("提示：不能将图片或者网页保存到本地再发布，那样扫码支付无效。<br><br>正确的做法是：复制图片的网络地址，然后通过这个网络地址在网上发布或者点击下载模板发布。",
+		function (index) {
 			layer.close(index);
 			window.open(url);
-		}); 
+		});
 	}
-	
+
 	function xydelete(g, p, u)
 	{
-		if (confirm("确定删除吗？")) 
-		{	
+		if (confirm("确定删除吗？"))
+		{
 			$.post("manage1.php?type=1",{pictureid:g, price:p, picurl:u}, function(data)
 			{
 				var obj = JSON.parse(data);
@@ -528,40 +537,40 @@ function m_delete()
 					alert(obj.info);
 				}
 			})
-        }  
+        }
         else
-		{  
+		{
  //           alert("点击了取消");
         }
 
 	}
-	
+
 function getTop(e)
-{ 
-	var offset=e.offsetTop; 
-	if(e.offsetParent!=null) offset+=getTop(e.offsetParent); 
-	return offset; 
+{
+	var offset=e.offsetTop;
+	if(e.offsetParent!=null) offset+=getTop(e.offsetParent);
+	return offset;
 }
-function getLeft(e){ 
-var offset=e.offsetLeft; 
-if(e.offsetParent!=null) offset+=getLeft(e.offsetParent); 
-return offset; 
-} 
+function getLeft(e){
+var offset=e.offsetLeft;
+if(e.offsetParent!=null) offset+=getLeft(e.offsetParent);
+return offset;
+}
 
     $(function(){
      $(".tijiao").click(function(){
-	 
+
 	 	var fenzu_id = $(this).attr("data-id") + "_group_id";
 		document.getElementById("fenzu_id").value = document.getElementById(fenzu_id).value;
 		document.getElementById("fenzu_id").setAttribute("data-id", $(this).attr("data-id") );
-		
+
 		document.getElementById("fenzu_kuang").style.left =  getLeft( document.getElementById(fenzu_id) ) - 150
 		 + "px" ;
 		document.getElementById("fenzu_kuang").style.top = getTop( document.getElementById(fenzu_id) ) + "px";
 
 		document.getElementById("fenzu_kuang").style.display="block";
      });
-	 
+
 $(".fenzu_queding").click(function()
 {
 	var id = document.getElementById("fenzu_id").getAttribute("data-id");
@@ -572,16 +581,16 @@ $(".fenzu_queding").click(function()
 		document.getElementById("fenzu_kuang").style.display="none";
 		return ;
 	 }
-	 
+
 	 if (fenzu == document.getElementById(fenzu_id).value)
 	 {
 		document.getElementById("fenzu_kuang").style.display="none";
 		return ;
 	 }
-	
+
 	$.post("manage1.php?type=3", {id: id, fenzu: fenzu}, function (data) {
 		var obj = JSON.parse(data);
-		if (obj.status == 1) 
+		if (obj.status == 1)
 		{
 			document.getElementById(fenzu_id).value = fenzu;
 		}
@@ -590,14 +599,14 @@ $(".fenzu_queding").click(function()
 			alert(obj.info);
 		}
 	})
-	
+
 	document.getElementById("fenzu_kuang").style.display="none";
 });
 	 $(".beizhu").click(function(){
 		var beizhu_id = $(this).attr("data-id") + "_beizhu";
 		document.getElementById("beizhu_id").value = document.getElementById(beizhu_id).value;
 		document.getElementById("beizhu_id").setAttribute("data-id", $(this).attr("data-id") );
-		
+
 		document.getElementById("beizhu_kuang").style.left =  getLeft( document.getElementById(beizhu_id) )
 		- 350 + "px" ;
 		document.getElementById("beizhu_kuang").style.top = getTop( document.getElementById(beizhu_id) ) + "px";
@@ -616,17 +625,17 @@ $(".queding").click(function()
 		document.getElementById("beizhu_kuang").style.display="none";
 		return ;
 	}
-	
+
 	if (beizhu == document.getElementById(beizhu_id).value)
 	{
 		document.getElementById("beizhu_kuang").style.display="none";
 		return ;
 	}
 
-	$.post("manage1.php?type=2", {id: id, beizhu: beizhu}, function (data) 
+	$.post("manage1.php?type=2", {id: id, beizhu: beizhu}, function (data)
 	{
 		var obj = JSON.parse(data);
-		if (obj.status == 1) 
+		if (obj.status == 1)
 		{
 			document.getElementById(beizhu_id).value = beizhu;
 		}
@@ -635,11 +644,11 @@ $(".queding").click(function()
 			alert(obj.info);
 		}
 	})
-	
+
 	document.getElementById("beizhu_kuang").style.display="none";
 });
 
-	 
+
 		$("#example").popover({placement:'left'/*,trigger: 'focus'*/});
 		$("#example1").popover({placement:'left'/*,trigger: 'focus'*/});
     });

@@ -13,13 +13,13 @@ ini_set('date.timezone','Asia/Shanghai');
 if ( $_POST["password"] &&  $_POST["password1"] && $_POST["password2"])
 {
 	$con = mysqli_connect($data_config['DB_HOST'], $data_config['DB_USER'], $data_config['DB_PWD'], $data_config['DB_NAME']);
-	if (mysqli_connect_errno($con)) 
-	{ 
-		$errortext = "Could not connect: " . mysqli_connect_error(); 
+	if (mysqli_connect_errno($con))
+	{
+		$errortext = "Could not connect: " . mysqli_connect_error();
 		header("location:warning.php?status=1&title=$errortext&time=10");
 		die(0);
 	}
-	
+
 	//修改密码
 	$password = $_REQUEST["password"];
 	$password1 = $_REQUEST["password1"];
@@ -45,9 +45,9 @@ if ( $_POST["password"] &&  $_POST["password1"] && $_POST["password2"])
 		header("location:warning.php?status=1&title=两次输入的密码不一致!&time=3");
 		die(0);
 	}
-	
+
 	mysqli_query($con, "update sellerinformation set password='{$password1}' where SellerID=$sellerid ;");
-	mysqli_query($con, "update user set password='{$password3}' where username ='{$row['Name']} ';");
+	mysqli_query($con, "update user set userpassword='{$password3}' where username ='{$row['Name']} ';");
 
 	mysqli_free_result($result);
 	mysqli_close($con);
@@ -62,8 +62,8 @@ if ( $_POST["password"] &&  $_POST["password1"] && $_POST["password2"])
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="Cache-Control" content="no-transform" /> 
-	<meta http-equiv="Cache-Control" content="no-siteapp" /> 
+	<meta http-equiv="Cache-Control" content="no-transform" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
 	<title>修改密码</title>
 	<link href="./css/bootstrap/bootstrap.css" type="text/css" rel="stylesheet">
@@ -78,14 +78,14 @@ if ( $_POST["password"] &&  $_POST["password1"] && $_POST["password2"])
 		.top_user {float: right;width: 200px;margin-right: 40px;margin-top: 10px;}
 		.show{color:red;}
 	</style>
-<style type="text/css"> 
+<style type="text/css">
 @media(max-width:760px)
-{  
+{
 	body {width:100%;}
 	.divPC{display:none}
-	.divMobile{display:block}	
-	.divMobile{width:100%}  
-	.divMobile img{max-width:90%} 
+	.divMobile{display:block}
+	.divMobile{width:100%}
+	.divMobile img{max-width:90%}
 }
 @media(min-width:760px)
 {
@@ -106,7 +106,7 @@ if ( $_POST["password"] &&  $_POST["password1"] && $_POST["password2"])
 	</div>
 	<!-- right -->
 	<div id="right">
-		
+
 <style type="text/css">
     label{width:20%;text-align: right; margin-right:20px;}
     .input_text{width: 250px; display: inline;}
@@ -142,7 +142,7 @@ if ( $_POST["password"] &&  $_POST["password1"] && $_POST["password2"])
     </table>
 </form>
 	</div>
-	
+
 </div>
 </div>
 <div class="divMobile">
@@ -150,7 +150,7 @@ if ( $_POST["password"] &&  $_POST["password1"] && $_POST["password2"])
 <div class="main-content">
 	<div class="panel-content" style="margin-top: 50px;">
        <div class="main-content-area" style="margin-top: -10px;">
-            
+
 <div class="row">
   <div class="col-md-12">
 
@@ -185,7 +185,7 @@ if ( $_POST["password"] &&  $_POST["password1"] && $_POST["password2"])
                   <div class="text-right">
                     <button class="btn btn-info" type="submit">修改密码</button>
                   </div>
-                  
+
               </form>
 					</div>
 			   </div>
@@ -299,7 +299,7 @@ if ( $_POST["password"] &&  $_POST["password1"] && $_POST["password2"])
             return false;}
 
     }
-	
+
 	//检测密码 m
 	function chkForm_m(obj)
 	{
@@ -308,13 +308,13 @@ if ( $_POST["password"] &&  $_POST["password1"] && $_POST["password2"])
 			alert("请输入旧密码，密码最少6位数");
 			return false;
 		}
-		
+
 		if (obj.password1.value=="" || obj.password1.value.length < 6 )
 		{
 			alert("请输入新密码，密码最少六位数");
 			return false;
 		}
-		
+
 		if (obj.password2.value=="" || obj.password2.value.length < 6 )
 		{
 			alert("请再次输入新密码，密码最少六位数");

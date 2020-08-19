@@ -1,54 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be3c1506-84a0-4522-af14-d90009e1c837" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/8tp/aaaa.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/11.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/12.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/2_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/2_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/2_3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/3_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/3_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/3_3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/QQ_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/QQ_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/QQ_3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/QQ_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/e1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/e2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/e33.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/e4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/e5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/help_6_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/help_6_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/help_6_3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/help_6_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/help_6_5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/help_6_6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/help_6_7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/w11-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/w3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8tp/help/w4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8tp/changepw.php" beforeDir="false" afterPath="$PROJECT_DIR$/8tp/changepw.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8tp/head.htm" beforeDir="false" afterPath="$PROJECT_DIR$/8tp/head.htm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8tp/login2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/8tp/manage.php" beforeDir="false" afterPath="$PROJECT_DIR$/8tp/manage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8tp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/8tp/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8tp/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/8tp/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aaaa.php" beforeDir="false" afterPath="$PROJECT_DIR$/aaaa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p.php" beforeDir="false" afterPath="$PROJECT_DIR$/p.php" afterDir="false" />
-    </list>
+    <list default="true" id="be3c1506-84a0-4522-af14-d90009e1c837" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,67 +14,12 @@
         <entry file="file://$PROJECT_DIR$/8tp/help.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="175">
-              <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
               <folding>
                 <element signature="e#349#355#0" expanded="true" />
                 <element signature="e#355#361#0" expanded="true" />
                 <element signature="e#361#367#0" expanded="true" />
                 <element signature="e#367#373#0" expanded="true" />
-                <element signature="e#458#464#1" expanded="true" />
-                <element signature="e#491#497#0" expanded="true" />
-                <element signature="e#497#503#0" expanded="true" />
-                <element signature="e#503#509#0" expanded="true" />
-                <element signature="e#509#515#0" expanded="true" />
-                <element signature="e#563#569#0" expanded="true" />
-                <element signature="e#569#575#0" expanded="true" />
-                <element signature="e#575#581#0" expanded="true" />
-                <element signature="e#581#587#0" expanded="true" />
-                <element signature="e#670#676#0" expanded="true" />
-                <element signature="e#676#682#0" expanded="true" />
-                <element signature="e#682#688#0" expanded="true" />
-                <element signature="e#688#694#0" expanded="true" />
-                <element signature="e#777#783#0" expanded="true" />
-                <element signature="e#783#789#0" expanded="true" />
-                <element signature="e#789#795#0" expanded="true" />
-                <element signature="e#795#801#0" expanded="true" />
-                <element signature="e#880#886#0" expanded="true" />
-                <element signature="e#886#892#0" expanded="true" />
-                <element signature="e#892#898#0" expanded="true" />
-                <element signature="e#898#904#0" expanded="true" />
-                <element signature="e#989#995#0" expanded="true" />
-                <element signature="e#995#1001#0" expanded="true" />
-                <element signature="e#1001#1007#0" expanded="true" />
-                <element signature="e#1007#1013#0" expanded="true" />
-                <element signature="e#1102#1108#1" expanded="true" />
-                <element signature="e#1135#1141#0" expanded="true" />
-                <element signature="e#1141#1147#0" expanded="true" />
-                <element signature="e#1147#1153#0" expanded="true" />
-                <element signature="e#1153#1159#0" expanded="true" />
-                <element signature="e#1207#1213#0" expanded="true" />
-                <element signature="e#1213#1219#0" expanded="true" />
-                <element signature="e#1219#1225#0" expanded="true" />
-                <element signature="e#1225#1231#0" expanded="true" />
-                <element signature="e#1354#1360#1" expanded="true" />
-                <element signature="e#1387#1393#0" expanded="true" />
-                <element signature="e#1393#1399#0" expanded="true" />
-                <element signature="e#1399#1405#0" expanded="true" />
-                <element signature="e#1405#1411#0" expanded="true" />
-                <element signature="e#1702#1708#0" expanded="true" />
-                <element signature="e#1708#1714#0" expanded="true" />
-                <element signature="e#1714#1720#0" expanded="true" />
-                <element signature="e#1720#1726#0" expanded="true" />
-                <element signature="e#1809#1815#0" expanded="true" />
-                <element signature="e#1815#1821#0" expanded="true" />
-                <element signature="e#1821#1827#0" expanded="true" />
-                <element signature="e#1827#1833#0" expanded="true" />
-                <element signature="e#1918#1924#0" expanded="true" />
-                <element signature="e#1924#1930#0" expanded="true" />
-                <element signature="e#1930#1936#0" expanded="true" />
-                <element signature="e#1936#1942#0" expanded="true" />
-                <element signature="e#2029#2035#0" expanded="true" />
-                <element signature="e#2035#2041#0" expanded="true" />
-                <element signature="e#2041#2047#0" expanded="true" />
-                <element signature="e#2047#2053#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -218,8 +116,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -315,17 +213,17 @@
       <workItem from="1597582485315" duration="12692000" />
       <workItem from="1597629285046" duration="3755000" />
       <workItem from="1597639220894" duration="12925000" />
+      <workItem from="1597760920026" duration="18000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68934000" />
+    <option name="totallyTimeSpent" value="68952000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49832776" visible="true" weight="0.24122137" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49832776" visible="true" weight="0.2446352" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="3" />
@@ -795,67 +693,12 @@
     <entry file="file://$PROJECT_DIR$/8tp/help.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
-          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
           <folding>
             <element signature="e#349#355#0" expanded="true" />
             <element signature="e#355#361#0" expanded="true" />
             <element signature="e#361#367#0" expanded="true" />
             <element signature="e#367#373#0" expanded="true" />
-            <element signature="e#458#464#1" expanded="true" />
-            <element signature="e#491#497#0" expanded="true" />
-            <element signature="e#497#503#0" expanded="true" />
-            <element signature="e#503#509#0" expanded="true" />
-            <element signature="e#509#515#0" expanded="true" />
-            <element signature="e#563#569#0" expanded="true" />
-            <element signature="e#569#575#0" expanded="true" />
-            <element signature="e#575#581#0" expanded="true" />
-            <element signature="e#581#587#0" expanded="true" />
-            <element signature="e#670#676#0" expanded="true" />
-            <element signature="e#676#682#0" expanded="true" />
-            <element signature="e#682#688#0" expanded="true" />
-            <element signature="e#688#694#0" expanded="true" />
-            <element signature="e#777#783#0" expanded="true" />
-            <element signature="e#783#789#0" expanded="true" />
-            <element signature="e#789#795#0" expanded="true" />
-            <element signature="e#795#801#0" expanded="true" />
-            <element signature="e#880#886#0" expanded="true" />
-            <element signature="e#886#892#0" expanded="true" />
-            <element signature="e#892#898#0" expanded="true" />
-            <element signature="e#898#904#0" expanded="true" />
-            <element signature="e#989#995#0" expanded="true" />
-            <element signature="e#995#1001#0" expanded="true" />
-            <element signature="e#1001#1007#0" expanded="true" />
-            <element signature="e#1007#1013#0" expanded="true" />
-            <element signature="e#1102#1108#1" expanded="true" />
-            <element signature="e#1135#1141#0" expanded="true" />
-            <element signature="e#1141#1147#0" expanded="true" />
-            <element signature="e#1147#1153#0" expanded="true" />
-            <element signature="e#1153#1159#0" expanded="true" />
-            <element signature="e#1207#1213#0" expanded="true" />
-            <element signature="e#1213#1219#0" expanded="true" />
-            <element signature="e#1219#1225#0" expanded="true" />
-            <element signature="e#1225#1231#0" expanded="true" />
-            <element signature="e#1354#1360#1" expanded="true" />
-            <element signature="e#1387#1393#0" expanded="true" />
-            <element signature="e#1393#1399#0" expanded="true" />
-            <element signature="e#1399#1405#0" expanded="true" />
-            <element signature="e#1405#1411#0" expanded="true" />
-            <element signature="e#1702#1708#0" expanded="true" />
-            <element signature="e#1708#1714#0" expanded="true" />
-            <element signature="e#1714#1720#0" expanded="true" />
-            <element signature="e#1720#1726#0" expanded="true" />
-            <element signature="e#1809#1815#0" expanded="true" />
-            <element signature="e#1815#1821#0" expanded="true" />
-            <element signature="e#1821#1827#0" expanded="true" />
-            <element signature="e#1827#1833#0" expanded="true" />
-            <element signature="e#1918#1924#0" expanded="true" />
-            <element signature="e#1924#1930#0" expanded="true" />
-            <element signature="e#1930#1936#0" expanded="true" />
-            <element signature="e#1936#1942#0" expanded="true" />
-            <element signature="e#2029#2035#0" expanded="true" />
-            <element signature="e#2035#2041#0" expanded="true" />
-            <element signature="e#2041#2047#0" expanded="true" />
-            <element signature="e#2047#2053#0" expanded="true" />
           </folding>
         </state>
       </provider>

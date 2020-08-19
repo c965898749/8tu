@@ -19,15 +19,15 @@ $data_config['DB_PWD'] = 'root';  // 密码
 
 
 //后台管理的账号和密码，建议修改。后台管理的网址：http://你的域名/admin/
-$admin_config['name'] = 'admin';
-$admin_config['password'] = '123456';
+$admin_config['name'] = 'tom123456';
+$admin_config['password'] = 'c866971331';
 
 
 //手机支付页面显示的客服QQ，留空则不显示。建议填写（写到双引号里面）
 $config_8tupian['contactqq'] = "965898749";
 
 //支付宝账单里显示的商品说明，可以修改（比如改成你的产品名称或者联系方式等）
-$config_8tupian['subjectname'] = "客观qq965898749";
+$config_8tupian['subjectname'] = "一梦工作室";
 
 
 //全局函数，不用修改
